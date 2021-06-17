@@ -45,3 +45,9 @@ var pokerGame = {
 	},
 };
 
+// Constructor function for poker cards
+function pokerCard(cardsSuit, cardRank) {
+	this.suit = cardsSuit;
+	this.rank = cardRank;
+	this.rankValue = null;
+}
