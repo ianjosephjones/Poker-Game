@@ -102,3 +102,10 @@ pokerCard.prototype.cardImage = function () {
 	return suitAbbr + this.rankValue + '.png';
 };
 
+// Method to replace a card with a one from the deck
+pokerCard.prototype.replaceFromDeck = function (pokerDeck) {
+	this.suit = pokerDeck.cards[0].suit;
+	this.rank = pokerDeck.cards[0].rank;
+	this.rankValue = pokerDeck.cards[0].rankValue;
+	pokerDeck.cards.shift();
+};

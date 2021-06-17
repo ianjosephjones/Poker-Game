@@ -76,6 +76,18 @@ function playDrawPoker() {
 			// Display the card images on the table
 			for (var i = 0; i < cardImages.length; i++) {
 				cardImages[i].src = myHand.cards[i].cardImage();
+
+				// Event handler for each card image
+				cardImages[i].index = i;
+				cardImages[i].onclick = function (e) {
+					if (e.target.discard !== true) {
+						e.target.discard = true;
+						e.target.src = 'ag_cardback.png';
+					} else {
+						e.target.discard = false;
+						e.target.src = myHand.cards[e.target.index].cardImage();
+					}
+				};
 			}
 		} else {
 			alert('Reduce the size of your bet');
