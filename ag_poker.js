@@ -32,6 +32,8 @@ function playDrawPoker() {
 	var myDeck = new pokerDeck();
 	myDeck.shuffle();
 
+	// Create a pokerHand object
+	var myHand = new pokerHand(5);
 	bankBox.value = pokerGame.currentBank;
 	// Display the value of current bank
 	betSelection.onchange = function (e) {
@@ -66,6 +68,12 @@ function playDrawPoker() {
 			enableObj(drawButton);
 			enableObj(standButton);
 			bankBox.value = pokerGame.placeBet();
+			if (myDeck.cards.length < 10) {
+				myDeck = new pokerDeck();
+				myDeck.shuffle();
+			}
+			myDeck.dealTo(myHand);
+			console.log(myDeck, myHand);
 		} else {
 			alert('Reduce the size of your bet');
 		}
