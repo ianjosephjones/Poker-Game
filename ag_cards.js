@@ -44,6 +44,33 @@ var pokerGame = {
 		return this.currentBank;
 	},
 };
+// Constructor function for poker cards
+function pokerDeck() {
+	this.cards = new Array(52);
+	var suits = ['Clubs', 'Diamonds', 'Hearts', 'Spades'];
+	var ranks = [
+		'2',
+		'3',
+		'4',
+		'5',
+		'6',
+		'7',
+		'8',
+		'9',
+		'10',
+		'Jack',
+		'Queen',
+		'King',
+		'Ace',
+	];
+	var cardCount = 0;
+	for (var i = 0; i < 4; i++) {
+		for (var j = 0; j < 13; j++) {
+			this.cards[cardCount].rankValue = j + 2;
+			cardCount++;
+		}
+	}
+}
 
 // Constructor function for poker cards
 function pokerCard(cardsSuit, cardRank) {
