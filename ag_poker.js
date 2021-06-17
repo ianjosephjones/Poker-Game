@@ -19,7 +19,7 @@ function playDrawPoker() {
 	var dealButton = document.getElementById('dealB');
 	var drawButton = document.getElementById('drawB');
 	var standButton = document.getElementById('standB');
-	var resetButton = document.getElementById('restB');
+	var resetButton = document.getElementById('resetB');
 	var handValueText = document.getElementById('handValue');
 	var betSelection = document.getElementById('bet');
 	var bankBox = document.getElementById('bank');
@@ -45,6 +45,15 @@ function playDrawPoker() {
 		obj.disable = false;
 		obj.style.opacity = 1;
 	}
+	// Restart the game btn
+	resetButton.addEventListener('click', function () {
+		pokerGame.currentBank = 500;
+		bankBox.value = pokerGame.currentBank;
+		enableObj(dealButton);
+		enableObj(betSelection);
+		disableObj(drawButton);
+		disableObj(standButton);
+	});
 	// enable the draw and stand btn after the deal
 	dealButton.addEventListener('click', function () {
 		if (pokerGame.currentBank >= pokerGame.currentBet) {

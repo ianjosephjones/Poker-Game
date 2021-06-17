@@ -44,3 +44,4 @@ var pokerGame = {
 		return this.currentBank;
 	},
 };
+
