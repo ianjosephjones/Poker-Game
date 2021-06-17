@@ -66,6 +66,7 @@ function pokerDeck() {
 	var cardCount = 0;
 	for (var i = 0; i < 4; i++) {
 		for (var j = 0; j < 13; j++) {
+			this.cards[cardCount] = new pokerCard(suits[i], ranks[j]);
 			this.cards[cardCount].rankValue = j + 2;
 			cardCount++;
 		}
@@ -76,8 +77,13 @@ function pokerDeck() {
 			return 0.5 - Math.random();
 		});
 	};
+    
 }
 
+// Constsructor function for poker hands
+function pokerHand(handLength) {
+	this.cards = new Array(handLength);
+}
 // Constructor function for poker cards
 function pokerCard(cardsSuit, cardRank) {
 	this.suit = cardsSuit;
