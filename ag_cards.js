@@ -126,13 +126,14 @@ pokerHand.prototype.hasStraight = function () {
 		}
 	});
 };
-
 // test for the presence of a straight flush
 pokerHand.prototype.hasStraightFlush = function () {
 	return this.hasFlush() && this.hasStraight();
 };
-
-
+// Test fro the presence of a royal flush
+pokerHand.prototype.hasRoyalFlush = function () {
+	return this.hasStraightFlush() && this, this.highCard() === 14;
+};
 // Constructor function for poker cards
 function pokerCard(cardsSuit, cardRank) {
 	this.suit = cardsSuit;
