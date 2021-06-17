@@ -177,6 +177,24 @@ pokerHand.prototype.handSets = function () {
 	}
 	return sets;
 };
+// Returns the type of poker hand
+pokerHand.prototype.handType = function () {
+	if (this.hasRoyalFlush()) {
+		return 'Royal Flush';
+	} else if (this.hasStraightFlush()) {
+		return 'Straight Flush';
+	} else if (this.hasFlush()) {
+		return 'Flush';
+	} else if (this.hasStraight()) {
+		return 'Straight';
+	} else {
+		var sets = this.handSets();
+		if (sets === 'Pair' || sets === 'none') {
+			sets = 'No Winner';
+		}
+		return sets;
+	}
+};
 // Constructor function for poker cards
 function pokerCard(cardsSuit, cardRank) {
 	this.suit = cardsSuit;
