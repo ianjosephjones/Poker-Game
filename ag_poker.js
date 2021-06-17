@@ -28,6 +28,16 @@ function playDrawPoker() {
 	var betSelection = document.getElementById('bet');
 	var bankBox = document.getElementById('bank');
 
+	// Set the initial values of the pokerGame object
+	pokerGame.currentBank = 500;
+	pokerGame.currentBet = 25;
+
+	// Display the value of current bank
+	betSelection.onchange = function (e) {
+		pokerGame.currentBet = parseInt(
+			e.target.options[e.target.selectedIndex].value
+		);
+	};
 	// enable the draw and stand btn after the deal
 	dealButton.addEventListener('click', function () {
 		disableObj(dealButton);
