@@ -24,6 +24,20 @@ function playDrawPoker() {
 	var betSelection = document.getElementById('bet');
 	var bankBox = document.getElementById('bank');
 
+	// enable the deal and bet options when the current hands ends
+	drawButton.addEventListener('click', function () {
+		enableObj(dealButton);
+		enableObj(betSelection);
+		disableObj(drawButton);
+		disableObj(standButton);
+	});
+
+	standButton.addEventListener('click', function () {
+		enableObj(dealButton);
+		enableObj(betSelection);
+		disableObj(drawButton);
+		disableObj(standButton);
+	});
 	// disable poker btn
 	function disableObj(obj) {
 		obj.disable = true;
