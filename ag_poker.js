@@ -47,10 +47,15 @@ function playDrawPoker() {
 	}
 	// enable the draw and stand btn after the deal
 	dealButton.addEventListener('click', function () {
-		disableObj(dealButton);
-		disableObj(betSelection);
-		enableObj(drawButton);
-		enableObj(standButton);
+		if (pokerGame.currentBank >= pokerGame.currentBet) {
+			disableObj(dealButton);
+			disableObj(betSelection);
+			enableObj(drawButton);
+			enableObj(standButton);
+			bankBox.value = pokerGame.placeBet();
+		} else {
+			alert('Reduce the size of your bet');
+		}
 	});
 	// enable the deal and bet options when the current hands ends
 	drawButton.addEventListener('click', function () {
