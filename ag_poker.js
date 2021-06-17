@@ -24,6 +24,13 @@ function playDrawPoker() {
 	var betSelection = document.getElementById('bet');
 	var bankBox = document.getElementById('bank');
 
+	// enable the draw and stand btn after the deal
+	dealButton.addEventListener('click', function () {
+		disableObj(dealButton);
+		disableObj(betSelection);
+		enableObj(drawButton);
+		enableObj(standButton);
+	});
 	// enable the deal and bet options when the current hands ends
 	drawButton.addEventListener('click', function () {
 		enableObj(dealButton);
@@ -31,7 +38,6 @@ function playDrawPoker() {
 		disableObj(drawButton);
 		disableObj(standButton);
 	});
-
 	standButton.addEventListener('click', function () {
 		enableObj(dealButton);
 		enableObj(betSelection);
@@ -48,12 +54,4 @@ function playDrawPoker() {
 		obj.disable = false;
 		obj.style.opacity = 1;
 	}
-
-	// enable the draw and stand btn after the deal
-	dealButton.addEventListener('click', function () {
-		disableObj(dealButton);
-		disableObj(betSelection);
-		enableObj(drawButton);
-		enableObj(standButton);
-	});
 }
