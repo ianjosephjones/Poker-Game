@@ -34,4 +34,12 @@ function playDrawPoker() {
 		obj.disable = false;
 		obj.style.opacity = 1;
 	}
+
+	// enable the draw and stand btn after the deal
+	dealButton.addEventListener('click', function () {
+		disableObj(dealButton);
+		disableObj(betSelection);
+		enableObj(drawButton);
+		enableObj(standButton);
+	});
 }
