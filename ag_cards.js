@@ -113,6 +113,20 @@ pokerHand.prototype.hasFlush = function () {
 	);
 };
 
+// Test for the presence of a straight
+pokerHand.prototype.hasStraight = function () {
+	this.cards.sort(function (a, b) {
+		return a.rankValue - b.rankValue;
+	});
+	return this.cards.every(function(card, i, cards) {
+		if (i > 0) {
+			return (cards[i].rankValue - cards[i-1].rankValue === 1);
+		} else {
+			return true;
+		}
+	}
+};
+
 // Constructor function for poker cards
 function pokerCard(cardsSuit, cardRank) {
 	this.suit = cardsSuit;
