@@ -111,6 +111,9 @@ function playDrawPoker() {
 		}
 		// Evaluate the hand drawn by user
 		handValueText.textContent = myHand.handType();
+
+		// Pay off the final hand
+		bankBox.value = pokerGame.payout(myHand.handOdds());
 	});
 	standButton.addEventListener('click', function () {
 		enableObj(dealButton);
@@ -120,5 +123,7 @@ function playDrawPoker() {
 
 		// Evaluate the hand dealt to the user
 		handValueText.textContent = myHand.handType();
+		// Pay off the final hand
+		bankBox.value = pokerGame.payout(myHand.handOdds());
 	});
 }
