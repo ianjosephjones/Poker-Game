@@ -95,3 +95,10 @@ function pokerCard(cardsSuit, cardRank) {
 	this.rank = cardRank;
 	this.rankValue = null;
 }
+
+// method to reference the image source file for the card
+pokerCard.prototype.cardImage = function () {
+	var suitAbbr = this.suit.substring(0, 1).toLowerCase();
+	return suitAbbr + this.rankValue + '.png';
+};
+
