@@ -13,14 +13,25 @@
 */
 
 // Begin playDrawPoker function
-window.addEventListener("load", playDrawPoker);
+window.addEventListener('load', playDrawPoker);
 
 function playDrawPoker() {
-   var dealButton = document.getElementById("dealB")
-   var drawButton = document.getElementById("drawB")
-   var standButton = document.getElementById("standB")
-   var resetButton = document.getElementById("restB")
-   var handValueText = document.getElementById("handValue")
-   var betSelection = document.getElementById("bet")
-   var bankBox = document.getElementById("bank")
+	var dealButton = document.getElementById('dealB');
+	var drawButton = document.getElementById('drawB');
+	var standButton = document.getElementById('standB');
+	var resetButton = document.getElementById('restB');
+	var handValueText = document.getElementById('handValue');
+	var betSelection = document.getElementById('bet');
+	var bankBox = document.getElementById('bank');
+
+	// disable poker btn
+	function disableObj(obj) {
+		obj.disable = true;
+		obj.style.opacity = 0.25;
+	}
+	// enable poker btn
+	function enableObj(obj) {
+		obj.disable = false;
+		obj.style.opacity = 1;
+	}
 }
