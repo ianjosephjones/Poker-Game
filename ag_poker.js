@@ -11,11 +11,7 @@
    Filename: ag_poker.js
 
 */
-// The pokerGame object
-var pokerGame = {
-	currentBank: null,
-	currentBet: null,
-};
+
 // Begin playDrawPoker function
 window.addEventListener('load', playDrawPoker);
 
@@ -32,12 +28,23 @@ function playDrawPoker() {
 	pokerGame.currentBank = 500;
 	pokerGame.currentBet = 25;
 
+	bankBox.value = pokerGame.currentBank;
 	// Display the value of current bank
 	betSelection.onchange = function (e) {
 		pokerGame.currentBet = parseInt(
 			e.target.options[e.target.selectedIndex].value
 		);
 	};
+	// disable poker btn
+	function disableObj(obj) {
+		obj.disable = true;
+		obj.style.opacity = 0.25;
+	}
+	// enable poker btn
+	function enableObj(obj) {
+		obj.disable = false;
+		obj.style.opacity = 1;
+	}
 	// enable the draw and stand btn after the deal
 	dealButton.addEventListener('click', function () {
 		disableObj(dealButton);
@@ -58,14 +65,4 @@ function playDrawPoker() {
 		disableObj(drawButton);
 		disableObj(standButton);
 	});
-	// disable poker btn
-	function disableObj(obj) {
-		obj.disable = true;
-		obj.style.opacity = 0.25;
-	}
-	// enable poker btn
-	function enableObj(obj) {
-		obj.disable = false;
-		obj.style.opacity = 1;
-	}
 }

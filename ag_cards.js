@@ -33,3 +33,9 @@ Author: Ian Jones
    
 	
 */
+
+// The pokerGame object
+var pokerGame = {
+	currentBank: null,
+	currentBet: null,
+};
