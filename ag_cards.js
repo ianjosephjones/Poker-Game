@@ -105,12 +105,9 @@ pokerHand.prototype.highCard = function () {
 // Test for the presence of a flush
 pokerHand.prototype.hasFlush = function () {
 	var firstSuit = this.cards[0].suit;
-	return (
-		this,
-		cards.every(function (card) {
-			return card.suit === firstSuit;
-		})
-	);
+	return this.cards.every(function (card) {
+		return card.suit === firstSuit;
+	});
 };
 
 // Test for the presence of a straight
@@ -132,7 +129,7 @@ pokerHand.prototype.hasStraightFlush = function () {
 };
 // Test fro the presence of a royal flush
 pokerHand.prototype.hasRoyalFlush = function () {
-	return this.hasStraightFlush() && this, this.highCard() === 14;
+	return this.hasStraightFlush() && this.highCard() === 14;
 };
 
 // Test for duplicates in the hand
@@ -141,7 +138,7 @@ pokerHand.prototype.handSets = function () {
 	var handSets = {};
 	this.cards.forEach(function (card) {
 		if (handSets.hasOwnProperty(card.rankValue)) {
-			handSets[cards.rankValue]++;
+			handSets[card.rankValue]++;
 		} else {
 			handSets[card.rankValue] = 1;
 		}
