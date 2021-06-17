@@ -70,6 +70,12 @@ function pokerDeck() {
 			cardCount++;
 		}
 	}
+	// Method to randomly sort the deck
+	this.shuffle = function () {
+		this.cards.sort(function () {
+			return 0.5 - Math.random();
+		});
+	};
 }
 
 // Constructor function for poker cards
