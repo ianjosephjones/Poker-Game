@@ -134,6 +134,49 @@ pokerHand.prototype.hasStraightFlush = function () {
 pokerHand.prototype.hasRoyalFlush = function () {
 	return this.hasStraightFlush() && this, this.highCard() === 14;
 };
+
+// Test for duplicates in the hand
+pokerHand.prototype.handSets = function () {
+	// Handsets summarizes the duplicates in the hand
+	var handSets = {};
+	this.cards.forEach(function (card) {
+		if (handSets.hasOwnProperty(card.rankValue)) {
+			handSets[cards.rankValue]++;
+		} else {
+			handSets[card.rankValue] = 1;
+		}
+	});
+
+	var sets = 'none';
+	var pairRank;
+
+	for (var cardRank in handSets) {
+		if (handSets[cardRank] === 4) {
+			sets = 'Four of a Kind';
+		}
+		if (handSets[cardRank] === 3) {
+			if (sets === 'Pair') {
+				sets = 'Full House';
+			} else {
+				sets = 'Three of a Kind';
+			}
+		}
+		if (handSets[cardRank] === 2) {
+			if (sets === 'Three of a Kind') {
+				sets = 'Full House';
+			} else if (set === 'Pair') {
+				sets = 'Two Pair';
+			} else {
+				sets = 'Pair';
+				pairRank = cardRank;
+			}
+		}
+	}
+	if (sets === 'Pair' && pairRank >= 11) {
+		sets = 'Jacks or Better';
+	}
+	return sets;
+};
 // Constructor function for poker cards
 function pokerCard(cardsSuit, cardRank) {
 	this.suit = cardsSuit;
