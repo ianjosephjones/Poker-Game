@@ -11,7 +11,11 @@
    Filename: ag_poker.js
 
 */
-
+// The pokerGame object
+var pokerGame = {
+	currentBank: null,
+	currentBet: null,
+};
 // Begin playDrawPoker function
 window.addEventListener('load', playDrawPoker);
 
