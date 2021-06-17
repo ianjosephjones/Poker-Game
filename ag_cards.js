@@ -118,14 +118,20 @@ pokerHand.prototype.hasStraight = function () {
 	this.cards.sort(function (a, b) {
 		return a.rankValue - b.rankValue;
 	});
-	return this.cards.every(function(card, i, cards) {
+	return this.cards.every(function (card, i, cards) {
 		if (i > 0) {
-			return (cards[i].rankValue - cards[i-1].rankValue === 1);
+			return cards[i].rankValue - cards[i - 1].rankValue === 1;
 		} else {
 			return true;
 		}
-	}
+	});
 };
+
+// test for the presence of a straight flush
+pokerHand.prototype.hasStraightFlush = function () {
+	return this.hasFlush() && this.hasStraight();
+};
+
 
 // Constructor function for poker cards
 function pokerCard(cardsSuit, cardRank) {
