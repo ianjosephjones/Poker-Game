@@ -102,6 +102,16 @@ pokerHand.prototype.highCard = function () {
 	);
 };
 
+// Test for the presence of a flush
+pokerHand.prototype.hasFlush = function () {
+	var firstSuit = this.cards[0].suit;
+	return (
+		this,
+		cards.every(function (card) {
+			return card.suit === firstSuit;
+		})
+	);
+};
 
 // Constructor function for poker cards
 function pokerCard(cardsSuit, cardRank) {
