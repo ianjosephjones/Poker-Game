@@ -44,6 +44,7 @@ var pokerGame = {
 		return this.currentBank;
 	},
 };
+
 // Constructor function for poker cards
 function pokerDeck() {
 	this.cards = new Array(52);
@@ -89,6 +90,19 @@ function pokerDeck() {
 function pokerHand(handLength) {
 	this.cards = new Array(handLength);
 }
+// Return the highest ranked card in the hand
+pokerHand.prototype.highCard = function () {
+	return Math.max.call(
+		pokerHand,
+		this.cards[0].rankValue,
+		this.cards[1].rankValue,
+		this.cards[2].rankValue,
+		this.cards[3].rankValue,
+		this.cards[4].rankValue
+	);
+};
+
+
 // Constructor function for poker cards
 function pokerCard(cardsSuit, cardRank) {
 	this.suit = cardsSuit;
