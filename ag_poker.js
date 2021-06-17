@@ -43,12 +43,12 @@ function playDrawPoker() {
 	};
 	// disable poker btn
 	function disableObj(obj) {
-		obj.disable = true;
+		obj.disabled = true;
 		obj.style.opacity = 0.25;
 	}
 	// enable poker btn
 	function enableObj(obj) {
-		obj.disable = false;
+		obj.disabled = false;
 		obj.style.opacity = 1;
 	}
 	// Restart the game btn
@@ -99,6 +99,15 @@ function playDrawPoker() {
 		enableObj(betSelection);
 		disableObj(drawButton);
 		disableObj(standButton);
+		// Replace the cards selected for discarding
+		for (var i = 0; i < cardImages.length; i++) {
+			if (cardImages[i].discard) {
+				myHand.cards[i].replaceFromDeck(myDeck);
+				cardImages[i].src = myHand.cards[i].cardImage();
+				cardImages[i].discard = false;
+			}
+			cardImages[i].onclick = null;
+		}
 	});
 	standButton.addEventListener('click', function () {
 		enableObj(dealButton);
